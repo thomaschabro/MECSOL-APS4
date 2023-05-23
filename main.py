@@ -1,0 +1,10 @@
+from funcoesTermosol import *
+[nn,N,nm,Inc,nc,F,nr,R] = importa('\entrada.xlsx')
+print(nn)
+print(N)
+print(nm)
+print(Inc)
+print(nc)
+print(F)
+print(nr)
+print(R)

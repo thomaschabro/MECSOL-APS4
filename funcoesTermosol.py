@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from math import *
+import numpy as np
+
 """
 A funcao 'plota' produz um gráfico da estrutura definida pela matriz de nos N 
 e pela incidencia Inc.
@@ -27,7 +30,13 @@ Sugestao de uso:
 from funcoesTermosol import geraSaida
 geraSaida(nome,Ft,Ut,Epsi,Fi,Ti)
 -------------------------------------------------------------------------------
+A funcao 'gauss_seidel'
 
+ite = numero de interacoes
+tolmin = tolerancia minima
+K = Matriz de rigidez após aplicação das condições de contorno
+F = Vetor de forças após aplicação das condições de contorno
+-------------------------------------------------------------------------------
 """
 def plota(N,Inc):
     # Numero de membros
@@ -137,5 +146,27 @@ def geraSaida(nome,Ft,Ut,Epsi,Fi,Ti):
     f.write(str(Ti))
     f.close()
     
+def gauss_seidel(K, F, ite, tolmin):
+    U = np.zeros((len(K), 1))
+    n = len(K)
+    x = U.copy()
+    count = 0
 
+    while count < ite:
+        for i in range(n):
+            x[i][0] = F[i]
+            x[i][0] -= np.sum(K[i][j] * x[j][0] for j in range(n) if j != i)
+            x[i][0] /= K[i][i]
 
+        if np.all(U != 0):  # Calculation of error
+            list_tol = [abs((i - j) / j) for i, j in zip(x, U)]
+            tol = max(list_tol)
+            if tol < tolmin:
+                print("Iterações: {0}".format(count))
+                return U
+
+        U = x.copy()
+        count += 1
+
+    print("Iterações: {0}".format(count))
+    return U
