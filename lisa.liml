@@ -60,7 +60,7 @@
     <z>0</z>
   </force>
   <mat mid="1" name="Material">
-    <geometric type="RectBar" recta="0.000525" rectb="1" />
+    <geometric type="RectBar" recta="5.25E-06" rectb="1" />
     <mechanical type="Isotropic" youngsmodulus="193140000000" />
   </mat>
   <nodeselection name="Unnamed">
@@ -184,7 +184,7 @@
     </nodeselection>
     <table />
     <results>
-      <stats start="2023-05-25T02:15:34.13" end="2023-05-25T02:15:34.15" duration=".01" />
+      <stats start="2023-05-25T18:56:18.5" end="2023-05-25T18:56:18.51" duration=".01" />
       <node nid="1" displx="0" disply="0" displz="0" rotx="0" roty="0" rotz="0" tensileforce="-2292.29856737469" stressptu="-4366282.9854756" displmag="0" />
       <node nid="2" displx="1.00473773851939E-05" disply="-4.31173336893044E-05" displz="0" rotx="0" roty="0" rotz="0" tensileforce="-3935.58842831376" stressptu="-7496358.91107382" displmag="4.42725000061588E-05" />
       <node nid="3" displx="3.59768635630702E-06" disply="-4.66312908057703E-05" displz="0" rotx="0" roty="0" rotz="0" tensileforce="737.499999999991" stressptu="1404761.90476189" displmag="4.67698688188312E-05" />
